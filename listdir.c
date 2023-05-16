@@ -6,7 +6,6 @@
 #include <dirent.h>
 #include <time.h>
 #include <string.h>
-#include <dirent.h>
 #include "helper.h"
 
 /* listfile lists given file like ls -la */

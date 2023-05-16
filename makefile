@@ -22,5 +22,8 @@ start:
 	sudo $(CC) create.c  helper.h $(CFLAGS)
 	$(CC) create.o -o ~bin/ufs_create	
 
+	sudo $(CC) change_mode.c  helper.h $(CFLAGS)
+	$(CC) change_mode.o -o ~bin/ufs_change_mode	
+
 clean:
-	rm -rf listdir.o dirwalk.o move.o delete.o create.o
+	rm -rf listdir.o dirwalk.o move.o delete.o create.o change_mode.o
