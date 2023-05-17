@@ -22,11 +22,11 @@ int main(int argc, char* argv[])
         switch (c)
         {
             case 'c':
-                if (argc != 3) {
+                if (argc < 3) {
                    printf("Usage: %s <filename> <directory>\n", argv[0]);
                    return 1;
                 }
-                create(argv[1], argv[2]);
+                create(argv[argc - 2], argv[argc - 1]);
                 break;
             case 'r':
                 remove_file(optarg);
@@ -38,18 +38,18 @@ int main(int argc, char* argv[])
                 listdir(optarg);
                 break;
             case 'm':
-                if (argc != 3) { // Check if both arguments are provided
-                    printf("Usage: %s <file> <directory>\n", argv[0]);
+                if (argc < 3) { // Check if both arguments are provided
+                    printf("Usage: sudo %s <file> <directory>\n", argv[1]);
                     return 1;
                 }
-                move(argv[1], argv[2]);
+                move(argv[argc - 2], argv[argc - 1]);
                 break;
             case 'h':
-                if (argc != 3) {
-                    fprintf(stderr, "Usage: %s <filepath> <mode>\n", argv[0]);
+                if (argc < 3) {
+                    fprintf(stderr, "Usage: sudo %s <filepath> <mode>\n", argv[1]);
                     return EXIT_FAILURE;
                 }
-                change_mode(argv[1], argv[2]);
+                change_mode(argv[argc - 2], argv[argc - 1]);
                 break;
             default:
                 perror("Incorrect option");
